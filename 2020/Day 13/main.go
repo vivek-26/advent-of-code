@@ -11,7 +11,8 @@ import (
 )
 
 func main() {
-	partOne(parseInput())
+	partOne(parseInput(true))
+	partTwo(parseInput(false))
 }
 
 func partOne(est int, buses []int) {
@@ -27,7 +28,23 @@ func partOne(est int, buses []int) {
 	fmt.Println(buses[busID] * smallestDiff)
 }
 
-func parseInput() (int, []int) {
+func partTwo(est int, buses []int) {
+	time := 0
+	stepSize := buses[0]
+
+	for i := 1; i < len(buses); i++ {
+		bus := buses[i]
+		for (time+i)%bus != 0 {
+			time = time + stepSize
+		}
+
+		stepSize = stepSize * bus
+	}
+
+	fmt.Println(time)
+}
+
+func parseInput(isPartOne bool) (int, []int) {
 	file, err := os.Open("./input.txt")
 	if err != nil {
 		log.Fatal(err)
@@ -52,6 +69,9 @@ func parseInput() (int, []int) {
 			for _, id := range ids {
 				switch id {
 				case "x":
+					if !isPartOne {
+						buses = append(buses, 1)
+					}
 				default:
 					busID, err := strconv.Atoi(id)
 					if err != nil {
