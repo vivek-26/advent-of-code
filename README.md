@@ -1,2 +1,3 @@
-# advent-of-code
-Advent of Code Solutions in Golang
+# Advent Of Code
+
+Advent of Code Solutions in Rust/Go/Python
