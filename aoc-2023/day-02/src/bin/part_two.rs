@@ -1,5 +1,3 @@
-use aoc;
-
 use std::collections::HashMap;
 
 fn main() {
@@ -20,7 +18,7 @@ fn main() {
             let mut cubes = HashMap::new();
             for cube in set.split(", ") {
                 // split cube into parts (count and color)
-                let cube_parts: Vec<&str> = cube.split(" ").collect();
+                let cube_parts: Vec<&str> = cube.split(' ').collect();
                 let count: i32 = cube_parts[0].parse().unwrap();
                 let color = cube_parts[1];
 
