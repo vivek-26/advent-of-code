@@ -1,5 +1,3 @@
-use aoc;
-
 fn main() {
     let lines = aoc::read_input_lines(1);
     let mut sum = 0;
