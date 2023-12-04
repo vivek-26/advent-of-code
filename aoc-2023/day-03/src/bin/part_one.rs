@@ -1,5 +1,3 @@
-use aoc;
-
 const DIR: &[(isize, isize)] = &[
     (-1, -1),
     (-1, 0),
@@ -14,7 +12,7 @@ const DIR: &[(isize, isize)] = &[
 fn main() {
     let board: Vec<Vec<char>> = aoc::read_input_lines(3)
         .iter()
-        .map(|line| line.chars().map(|c| c).collect::<Vec<char>>())
+        .map(|line| line.chars().collect::<Vec<char>>())
         .collect();
 
     let rows = board.len();
