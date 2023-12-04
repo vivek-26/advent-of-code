@@ -19,7 +19,7 @@ fn main() {
 
     let rows = board.len();
     let cols = board[0].len();
-    let mut gear_rations = HashMap::new();
+    let mut gear_ratios = HashMap::new();
 
     for r in 0..rows {
         let mut num = 0;
@@ -31,7 +31,7 @@ fn main() {
                 if is_valid {
                     is_valid = false;
 
-                    gear_rations
+                    gear_ratios
                         .entry((gear_row, gear_col))
                         .or_insert(vec![])
                         .push(num);
@@ -67,14 +67,14 @@ fn main() {
 
         // leftover number at the end of the row
         if is_valid {
-            gear_rations
+            gear_ratios
                 .entry((gear_row, gear_col))
                 .or_insert(vec![])
                 .push(num);
         }
     }
 
-    let answer: u64 = gear_rations
+    let answer: u64 = gear_ratios
         .into_values()
         .filter(|x| x.len() == 2)
         .map(|x| x[0] * x[1])
