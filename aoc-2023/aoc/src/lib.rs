@@ -13,27 +13,17 @@ fn get_inputs_dir() -> PathBuf {
 
 pub fn read_input(day: u8) -> String {
     let file_name = get_inputs_dir().join(format!("{:02}.in", day));
-    let contents = read_to_string(&file_name)
-        .expect(format!("cannot open input file {}", &file_name.to_string_lossy()).as_str());
 
-    contents
+    read_to_string(&file_name)
+        .unwrap_or_else(|_| panic!("cannot open input file {}", &file_name.to_string_lossy()))
 }
 
 pub fn read_input_lines(day: u8) -> Vec<String> {
     let file_name = get_inputs_dir().join(format!("{:02}.in", day));
     let file = File::open(&file_name)
-        .expect(format!("cannot open input file {}", &file_name.to_string_lossy()).as_str());
+        .unwrap_or_else(|_| panic!("cannot open input file {}", &file_name.to_string_lossy()));
 
     let reader = io::BufReader::new(file);
-    let mut lines = Vec::new();
 
-    for line in reader.lines() {
-        if let Ok(line_content) = line {
-            if !line_content.trim().is_empty() {
-                lines.push(line_content)
-            }
-        }
-    }
-
-    lines
+    reader.lines().flatten().collect()
 }
