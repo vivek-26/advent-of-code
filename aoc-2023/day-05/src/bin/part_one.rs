@@ -40,6 +40,7 @@ fn main() {
                 })
                 .unwrap_or(location);
         }
+
         locations.push(location);
     }
 
