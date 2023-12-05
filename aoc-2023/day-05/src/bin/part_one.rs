@@ -4,52 +4,45 @@ fn main() {
 
     let seeds: Vec<_> = lines
         .next()
-        .unwrap()
+        .unwrap_or("")
         .split(": ")
         .last()
-        .unwrap()
+        .unwrap_or("")
         .split(' ')
-        .map(|f| f.parse::<usize>().unwrap())
+        .map(|f| f.parse::<usize>().unwrap_or(0))
         .collect();
 
-    let translations: Vec<_> = lines
-        .map(|translation| {
-            translation
+    let mut locations = Vec::new();
+
+    for seed in &seeds {
+        let mut location = *seed;
+        for translation in lines.clone() {
+            let curr_translation: Vec<_> = translation
                 .split(":\n")
                 .skip(1)
                 .flat_map(|f| f.split('\n'))
                 .map(|x| {
                     x.split(' ')
-                        .map(|f| f.parse::<usize>().unwrap())
+                        .map(|f| f.parse::<usize>().unwrap_or(0))
                         .collect::<Vec<_>>()
                 })
-                .collect::<Vec<_>>()
-        })
-        .collect();
+                .collect();
 
-    let locations: Vec<_> = seeds
-        .iter()
-        .map(|seed| {
-            translations
+            location = curr_translation
                 .iter()
-                .fold(*seed, |curr_id, curr_translation| {
-                    curr_translation
-                        .iter()
-                        .find_map(|translation| {
-                            if translation[1] <= curr_id
-                                && curr_id <= translation[1] + translation[2]
-                            {
-                                let offset = curr_id - translation[1];
-                                Some(translation[0] + offset)
-                            } else {
-                                None
-                            }
-                        })
-                        .unwrap_or(curr_id)
+                .find_map(|translation| {
+                    if translation[1] <= location && location <= translation[1] + translation[2] {
+                        let offset = location - translation[1];
+                        Some(translation[0] + offset)
+                    } else {
+                        None
+                    }
                 })
-        })
-        .collect();
+                .unwrap_or(location);
+        }
+        locations.push(location);
+    }
 
-    let answer = locations.iter().min().unwrap();
+    let answer = locations.iter().min().unwrap_or(&0);
     println!("answer: {}", answer);
 }
