@@ -21,7 +21,7 @@ fn main() {
         ways.push(beat_record);
     }
 
-    let answer = ways.iter().fold(1, |acc, &w| acc * w);
+    let answer = ways.iter().product::<i32>();
     println!("{answer}");
 }
 
