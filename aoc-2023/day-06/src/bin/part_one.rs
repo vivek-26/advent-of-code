@@ -15,7 +15,7 @@ fn main() {
             }
         }
 
-        beats_record = beats_record - if record_time[idx] % 2 == 0 { 1 } else { 0 };
+        beats_record -= if record_time[idx] % 2 == 0 { 1 } else { 0 };
         ways.push(beats_record);
     }
 

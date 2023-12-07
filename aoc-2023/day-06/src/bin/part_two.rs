@@ -12,7 +12,7 @@ fn main() {
         }
     }
 
-    beats_record = beats_record - if record_time % 2 == 0 { 1 } else { 0 };
+    beats_record -= if record_time % 2 == 0 { 1 } else { 0 };
     println!("{}", beats_record);
 }
 
