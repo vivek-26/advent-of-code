@@ -2,17 +2,18 @@ fn main() {
     let lines = aoc::read_input_lines(6);
     let mut lines_iter = lines.iter();
 
-    let recorded_time = parse_input(lines_iter.next().unwrap());
-    let recorded_distance = parse_input(lines_iter.next().unwrap());
+    let record_time = parse_input(lines_iter.next().unwrap());
+    let record_distance = parse_input(lines_iter.next().unwrap());
 
-    let mut beat_record = 0;
-    for t in 0..=recorded_time {
-        if t * (recorded_time - t) > recorded_distance {
-            beat_record += 1;
+    let mut beats_record = 0;
+    for t in 0..=record_time / 2 {
+        if t * (record_time - t) > record_distance {
+            beats_record += 2;
         }
     }
 
-    println!("{}", beat_record);
+    beats_record = beats_record - if record_time % 2 == 0 { 1 } else { 0 };
+    println!("{}", beats_record);
 }
 
 fn parse_input(input: &str) -> usize {

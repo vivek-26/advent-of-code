@@ -2,26 +2,24 @@ fn main() {
     let lines = aoc::read_input_lines(6);
     let mut lines_iter = lines.iter();
 
-    let recorded_time: Vec<_> = parse_input(lines_iter.next().unwrap());
-    println!("recorded time: {:?}", recorded_time);
-
-    let recorded_distance: Vec<_> = parse_input(lines_iter.next().unwrap());
-    println!("recorded distance: {:?}", recorded_distance);
+    let record_time: Vec<_> = parse_input(lines_iter.next().unwrap());
+    let record_distance: Vec<_> = parse_input(lines_iter.next().unwrap());
 
     let mut ways = Vec::new();
-    for idx in 0..recorded_time.len() {
-        let mut beat_record = 0;
+    for idx in 0..record_time.len() {
+        let mut beats_record = 0;
 
-        for t in 0..=recorded_time[idx] {
-            if t * (recorded_time[idx] - t) > recorded_distance[idx] {
-                beat_record += 1;
+        for time in 0..=record_time[idx] / 2 {
+            if time * (record_time[idx] - time) > record_distance[idx] {
+                beats_record += 2;
             }
         }
 
-        ways.push(beat_record);
+        beats_record = beats_record - if record_time[idx] % 2 == 0 { 1 } else { 0 };
+        ways.push(beats_record);
     }
 
-    let answer = ways.iter().product::<i32>();
+    let answer = ways.iter().product::<usize>();
     println!("{answer}");
 }
 
