@@ -29,7 +29,7 @@ impl Direction {
     }
 }
 
-#[derive(Debug)]
+#[derive(Debug, PartialEq)]
 pub enum PipeDirection {
     Vertical,    // |
     Horizontal,  // -
