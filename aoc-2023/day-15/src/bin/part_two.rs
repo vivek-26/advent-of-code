@@ -16,7 +16,8 @@ struct Lens<'a> {
     focal_length: u8,
 }
 
-fn main() {
+#[aoc_runner::timeit]
+fn main() -> usize {
     let input = aoc::read_input(15);
     let instructions = parse_instructions(input.as_str());
 
@@ -51,7 +52,7 @@ fn main() {
         }
     }
 
-    let answer = boxes
+    boxes
         .iter()
         .enumerate()
         .map(|(bx_idx, bx)| {
@@ -60,9 +61,7 @@ fn main() {
                 .map(|(l_idx, lens)| (bx_idx + 1) * (l_idx + 1) * (lens.focal_length as usize))
                 .sum::<usize>()
         })
-        .sum::<usize>();
-
-    println!("{answer}");
+        .sum::<usize>()
 }
 
 fn parse_instructions(input: &str) -> Vec<Instruction> {
