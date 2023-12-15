@@ -82,12 +82,6 @@ fn parse_instructions(input: &str) -> Vec<Instruction> {
 }
 
 fn hash(step: &str) -> usize {
-    let curr = step.chars().fold(0_u16, |mut acc, ch| {
-        acc += ch as u16;
-        acc *= 17;
-        acc %= 256;
-        acc
-    });
-
-    curr as usize
+    step.chars()
+        .fold(0_usize, |acc, ch| ((acc + ch as usize) * 17) % 256)
 }
