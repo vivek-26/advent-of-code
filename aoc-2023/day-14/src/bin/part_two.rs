@@ -56,7 +56,7 @@ fn cycle(grid: &mut Vec<Vec<Landscape>>) {
 }
 
 fn slide_north(grid: &mut Vec<Vec<Landscape>>) {
-    fn next_empty_slot(grid: &Vec<Vec<Landscape>>, row: usize, col: usize) -> usize {
+    fn next_empty_slot(grid: &[Vec<Landscape>], row: usize, col: usize) -> usize {
         (row..grid.len())
             .find(|&r| grid[r][col] == Landscape::EmptySpace)
             .unwrap_or(grid.len())
@@ -87,7 +87,7 @@ fn slide_north(grid: &mut Vec<Vec<Landscape>>) {
 }
 
 fn slide_west(grid: &mut Vec<Vec<Landscape>>) {
-    fn next_empty_slot(grid: &Vec<Vec<Landscape>>, row: usize, col: usize) -> usize {
+    fn next_empty_slot(grid: &[Vec<Landscape>], row: usize, col: usize) -> usize {
         (col..grid[0].len())
             .find(|&c| grid[row][c] == Landscape::EmptySpace)
             .unwrap_or(grid[0].len())
@@ -118,7 +118,7 @@ fn slide_west(grid: &mut Vec<Vec<Landscape>>) {
 }
 
 fn slide_south(grid: &mut Vec<Vec<Landscape>>) {
-    fn next_empty_slot(grid: &Vec<Vec<Landscape>>, row: usize, col: usize) -> isize {
+    fn next_empty_slot(grid: &[Vec<Landscape>], row: usize, col: usize) -> isize {
         (0..=row as isize)
             .rev()
             .find(|&r| grid[r as usize][col] == Landscape::EmptySpace)
@@ -150,7 +150,7 @@ fn slide_south(grid: &mut Vec<Vec<Landscape>>) {
 }
 
 fn slide_east(grid: &mut Vec<Vec<Landscape>>) {
-    fn next_empty_slot(grid: &Vec<Vec<Landscape>>, row: usize, col: usize) -> isize {
+    fn next_empty_slot(grid: &[Vec<Landscape>], row: usize, col: usize) -> isize {
         (0..=col as isize)
             .rev()
             .find(|&c| grid[row][c as usize] == Landscape::EmptySpace)
@@ -181,7 +181,7 @@ fn slide_east(grid: &mut Vec<Vec<Landscape>>) {
     }
 }
 
-fn total_load_north_beam(grid: &Vec<Vec<Landscape>>) -> usize {
+fn total_load_north_beam(grid: &[Vec<Landscape>]) -> usize {
     grid.iter().enumerate().fold(0, |total, (row, line)| {
         total
             + line
