@@ -2,10 +2,11 @@ use itertools::Itertools;
 
 use day_12::possible_ways;
 
-fn main() {
-    let lines = aoc::read_input_lines(12);
-    let answer = lines
-        .iter()
+#[aoc_runner::timeit]
+fn main() -> usize {
+    let lines = aoc::read_input(12);
+    lines
+        .split('\n')
         .map(|line| {
             let (spring, counts) = line.split_once(' ').unwrap();
 
@@ -19,7 +20,5 @@ fn main() {
 
             possible_ways(&spring, counts.into_iter().cycle().take(5 * n))
         })
-        .sum::<usize>();
-
-    println!("{answer}");
+        .sum()
 }
