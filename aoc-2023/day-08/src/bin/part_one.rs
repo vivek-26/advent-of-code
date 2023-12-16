@@ -12,7 +12,8 @@ struct Direction<'a> {
     right: &'a str,
 }
 
-fn main() {
+#[aoc_runner::timeit]
+fn main() -> usize {
     let lines = aoc::read_input_lines(8);
 
     let instructions: Vec<_> = lines[0]
@@ -62,5 +63,5 @@ fn main() {
         idx += 1;
     }
 
-    println!("{steps}");
+    steps
 }

@@ -8,3 +8,4 @@ edition = "2021"
 [dependencies]
 aoc = { path = "../aoc" }
 num = "0.4.1"
+aoc-runner = { path = "../aoc-runner" }

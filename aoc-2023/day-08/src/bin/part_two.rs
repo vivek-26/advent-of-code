@@ -12,7 +12,8 @@ struct Direction<'a> {
     right: &'a str,
 }
 
-fn main() {
+#[aoc_runner::timeit]
+fn main() -> usize {
     let lines = aoc::read_input_lines(8);
 
     let instructions: Vec<_> = lines[0]
@@ -71,5 +72,5 @@ fn main() {
         })
         .for_each(|steps| answer = num::integer::lcm(steps, answer));
 
-    println!("{answer}");
+    answer
 }
