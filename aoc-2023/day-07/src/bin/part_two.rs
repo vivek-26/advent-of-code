@@ -19,7 +19,8 @@ struct Card {
     bid: u16,
 }
 
-fn main() {
+#[aoc_runner::timeit]
+fn main() -> usize {
     let card_strength = [
         'A', 'K', 'Q', 'T', '9', '8', '7', '6', '5', '4', '3', '2', 'J',
     ]
@@ -60,13 +61,11 @@ fn main() {
         }
     });
 
-    let answer = cards
+    cards
         .iter()
         .enumerate()
         .map(|(idx, card)| card.bid as usize * (idx + 1))
-        .sum::<usize>();
-
-    println!("{answer}");
+        .sum()
 }
 
 fn parse_card_type(input: &str) -> CardType {
