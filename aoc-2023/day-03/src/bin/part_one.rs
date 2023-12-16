@@ -9,7 +9,8 @@ const DIR: &[(isize, isize)] = &[
     (1, 1),
 ];
 
-fn main() {
+#[aoc_runner::timeit]
+fn main() -> u64 {
     let board: Vec<Vec<char>> = aoc::read_input_lines(3)
         .iter()
         .map(|line| line.chars().collect::<Vec<char>>())
@@ -63,5 +64,5 @@ fn main() {
         }
     }
 
-    println!("{answer}");
+    answer
 }

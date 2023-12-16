@@ -11,7 +11,8 @@ const DIR: &[(isize, isize)] = &[
     (1, 1),
 ];
 
-fn main() {
+#[aoc_runner::timeit]
+fn main() -> u64 {
     let board: Vec<Vec<char>> = aoc::read_input_lines(3)
         .iter()
         .map(|line| line.chars().collect::<Vec<char>>())
@@ -74,11 +75,9 @@ fn main() {
         }
     }
 
-    let answer: u64 = gear_ratios
+    gear_ratios
         .into_values()
         .filter(|x| x.len() == 2)
         .map(|x| x[0] * x[1])
-        .sum();
-
-    println!("{answer}");
+        .sum()
 }
