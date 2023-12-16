@@ -2,8 +2,9 @@ use std::collections::HashMap;
 
 use day_14::Landscape;
 
-fn main() {
-    let mut grid = parse_input(aoc::read_input_lines(14));
+#[aoc_runner::timeit]
+fn main() -> usize {
+    let mut grid = parse_input(aoc::read_input(14));
     let total_cycles = 1000000000_usize;
     let mut map = HashMap::new();
     let mut index = 0_usize;
@@ -22,19 +23,22 @@ fn main() {
         map.insert(grid.clone(), index);
     }
 
+    let mut answer = 0;
     let cycle_length = map.len() - cycle_start;
     let last_grid_idx = cycle_start + (total_cycles - cycle_start) % cycle_length;
     for (grid, idx) in map {
         if idx == last_grid_idx {
-            println!("{}", total_load_north_beam(&grid));
+            answer = total_load_north_beam(&grid);
             break;
         }
     }
+
+    answer
 }
 
-fn parse_input(input: Vec<String>) -> Vec<Vec<Landscape>> {
+fn parse_input(input: String) -> Vec<Vec<Landscape>> {
     input
-        .iter()
+        .split('\n')
         .map(|line| {
             line.chars()
                 .map(|ch| match ch {

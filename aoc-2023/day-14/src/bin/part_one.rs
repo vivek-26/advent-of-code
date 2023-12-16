@@ -1,14 +1,15 @@
 use day_14::Landscape;
 
-fn main() {
-    let mut grid = parse_input(aoc::read_input_lines(14));
+#[aoc_runner::timeit]
+fn main() -> usize {
+    let mut grid = parse_input(aoc::read_input(14));
     slide_north(&mut grid);
-    println!("{}", total_load_north_beam(&grid));
+    total_load_north_beam(&grid)
 }
 
-fn parse_input(input: Vec<String>) -> Vec<Vec<Landscape>> {
+fn parse_input(input: String) -> Vec<Vec<Landscape>> {
     input
-        .iter()
+        .split('\n')
         .map(|line| {
             line.chars()
                 .map(|ch| match ch {
