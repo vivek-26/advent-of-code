@@ -1,4 +1,5 @@
-fn main() {
+#[aoc_runner::timeit]
+fn main() -> u32 {
     let lines = aoc::read_input_lines(1);
     let mut sum = 0;
 
@@ -11,5 +12,5 @@ fn main() {
         sum += num_one * 10 + num_two;
     }
 
-    println!("{}", sum);
+    sum
 }
