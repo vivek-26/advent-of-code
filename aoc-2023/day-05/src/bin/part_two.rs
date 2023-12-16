@@ -1,6 +1,7 @@
 use std::ops::Range;
 
-fn main() {
+#[aoc_runner::timeit]
+fn main() -> i128 {
     let input = aoc::read_input(5);
     let lines: Vec<_> = input.split("\n\n").collect();
 
@@ -14,8 +15,7 @@ fn main() {
 
     ranges.sort_by_key(|range| range.start);
 
-    let answer = ranges.first().unwrap().start;
-    println!("answer: {}", answer);
+    ranges.first().unwrap().start
 }
 
 fn parse_seeds_ranges(input: &str) -> Vec<Range<i128>> {

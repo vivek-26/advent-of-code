@@ -1,4 +1,5 @@
-fn main() {
+#[aoc_runner::timeit]
+fn main() -> usize {
     let input = aoc::read_input(5);
     let mut lines = input.split("\n\n");
 
@@ -44,6 +45,5 @@ fn main() {
         locations.push(location);
     }
 
-    let answer = locations.iter().min().unwrap_or(&0);
-    println!("answer: {}", answer);
+    *locations.iter().min().unwrap_or(&0)
 }
