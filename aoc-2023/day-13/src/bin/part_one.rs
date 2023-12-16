@@ -1,4 +1,5 @@
-fn main() {
+#[aoc_runner::timeit]
+fn main() -> i64 {
     let input = aoc::read_input(13);
     let input = input.split("\n\n").collect::<Vec<&str>>();
     let mut total: i64 = 0;
@@ -9,7 +10,7 @@ fn main() {
         total += v as i64;
     }
 
-    println!("{}", total)
+    total
 }
 
 fn parse_grid(input_str: &str) -> Vec<Vec<char>> {
