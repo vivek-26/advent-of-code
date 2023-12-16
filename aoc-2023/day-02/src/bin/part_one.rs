@@ -1,6 +1,7 @@
 use std::collections::HashMap;
 
-fn main() {
+#[aoc_runner::timeit]
+fn main() -> i32 {
     let lines = aoc::read_input_lines(2);
 
     // for each line
@@ -43,6 +44,5 @@ fn main() {
         }
     }
 
-    // print sum
-    println!("{}", sum);
+    sum
 }
