@@ -1,3 +1,4 @@
-fn main() {
-    println!("{}", day_11::solve(2));
+#[aoc_runner::timeit]
+fn main() -> usize {
+    day_11::solve(2)
 }

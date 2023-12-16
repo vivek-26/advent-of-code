@@ -1,6 +1,9 @@
 pub fn solve(expansion: usize) -> usize {
-    let input = aoc::read_input_lines(11);
-    let grid: Vec<Vec<_>> = input.iter().map(|line| line.chars().collect()).collect();
+    let input = aoc::read_input(11);
+    let grid: Vec<Vec<_>> = input
+        .split('\n')
+        .map(|line| line.chars().collect())
+        .collect();
 
     let vertical_distances: Vec<_> = (0..grid.len())
         .map(|r| grid[r].iter().all(|&c| c == '.') as usize * (expansion - 1) + 1)
