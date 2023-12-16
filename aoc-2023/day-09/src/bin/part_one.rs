@@ -1,7 +1,8 @@
-fn main() {
-    let lines = aoc::read_input_lines(9);
+#[aoc_runner::timeit]
+fn main() -> isize {
+    let lines = aoc::read_input(9);
     let mut histories: Vec<Vec<isize>> = lines
-        .iter()
+        .split('\n')
         .map(|line| {
             line.split_whitespace()
                 .filter_map(|num_str| num_str.parse().ok())
@@ -18,6 +19,5 @@ fn main() {
         }
     }
 
-    let answer: isize = histories.iter().flat_map(|history| history.iter()).sum();
-    println!("{answer}");
+    histories.iter().flat_map(|history| history.iter()).sum()
 }
