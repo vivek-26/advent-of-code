@@ -1,6 +1,7 @@
 use std::collections::HashSet;
 
-fn main() {
+#[aoc_runner::timeit]
+fn main() -> u32 {
     let mut sum = 0_u32;
 
     for line in aoc::read_input_lines(4) {
@@ -22,5 +23,5 @@ fn main() {
         }
     }
 
-    println!("{}", sum);
+    sum
 }
