@@ -1,6 +1,7 @@
-fn main() {
-    let lines = aoc::read_input_lines(6);
-    let mut lines_iter = lines.iter();
+#[aoc_runner::timeit]
+fn main() -> usize {
+    let lines = aoc::read_input(6);
+    let mut lines_iter = lines.split('\n');
 
     let record_time: Vec<_> = parse_input(lines_iter.next().unwrap());
     let record_distance: Vec<_> = parse_input(lines_iter.next().unwrap());
@@ -19,8 +20,7 @@ fn main() {
         ways.push(beats_record);
     }
 
-    let answer = ways.iter().product::<usize>();
-    println!("{answer}");
+    ways.iter().product()
 }
 
 fn parse_input(input: &str) -> Vec<usize> {

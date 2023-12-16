@@ -1,6 +1,7 @@
-fn main() {
-    let lines = aoc::read_input_lines(6);
-    let mut lines_iter = lines.iter();
+#[aoc_runner::timeit]
+fn main() -> i32 {
+    let lines = aoc::read_input(6);
+    let mut lines_iter = lines.split('\n');
 
     let record_time = parse_input(lines_iter.next().unwrap());
     let record_distance = parse_input(lines_iter.next().unwrap());
@@ -13,7 +14,8 @@ fn main() {
     }
 
     beats_record -= if record_time % 2 == 0 { 1 } else { 0 };
-    println!("{}", beats_record);
+
+    beats_record
 }
 
 fn parse_input(input: &str) -> usize {
