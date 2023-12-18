@@ -2,9 +2,9 @@ use std::collections::HashMap;
 
 use day_14::Landscape;
 
-#[aoc_runner::main]
-fn main() -> usize {
-    let mut grid = parse_input(aoc::read_input(14));
+#[aoc_runner::main(14)]
+fn main(input: &str) -> usize {
+    let mut grid = parse_input(input);
     let total_cycles = 1000000000_usize;
     let mut map = HashMap::new();
     let mut index = 0_usize;
@@ -36,7 +36,7 @@ fn main() -> usize {
     answer
 }
 
-fn parse_input(input: String) -> Vec<Vec<Landscape>> {
+fn parse_input(input: &str) -> Vec<Vec<Landscape>> {
     input
         .split('\n')
         .map(|line| {
