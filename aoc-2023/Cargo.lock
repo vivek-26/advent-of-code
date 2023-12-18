@@ -132,7 +132,6 @@ dependencies = [
 name = "day-16"
 version = "0.1.0"
 dependencies = [
- "aoc",
  "aoc-runner",
 ]
 

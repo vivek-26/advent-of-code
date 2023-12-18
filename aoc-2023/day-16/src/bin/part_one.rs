@@ -2,9 +2,8 @@ use std::collections::HashSet;
 
 use day_16::{Beam, Direction, Position};
 
-#[aoc_runner::main]
-fn main() -> usize {
-    let input = aoc::read_input(16);
+#[aoc_runner::main(16)]
+fn main(input: &str) -> usize {
     let lines: Vec<Vec<_>> = input.lines().map(|line| line.chars().collect()).collect();
 
     let mut visited: HashSet<Position> = HashSet::new();
