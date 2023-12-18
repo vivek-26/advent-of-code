@@ -2,13 +2,11 @@ use std::collections::{HashSet, VecDeque};
 
 use day_10::{Coordinate, Direction, PipeDirection};
 
-#[aoc_runner::main]
-fn main() -> usize {
-    let lines = aoc::read_input(10);
-
+#[aoc_runner::main(10)]
+fn main(input: &str) -> usize {
     let mut starting_pos = Coordinate(0, 0);
-    let grid = lines
-        .split('\n')
+    let grid = input
+        .lines()
         .enumerate()
         .map(|(row, line)| {
             line.chars()
