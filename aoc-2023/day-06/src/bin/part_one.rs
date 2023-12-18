@@ -1,7 +1,6 @@
-#[aoc_runner::main]
-fn main() -> usize {
-    let lines = aoc::read_input(6);
-    let mut lines_iter = lines.split('\n');
+#[aoc_runner::main(6)]
+fn main(input: &str) -> usize {
+    let mut lines_iter = input.split('\n');
 
     let record_time: Vec<_> = parse_input(lines_iter.next().unwrap());
     let record_distance: Vec<_> = parse_input(lines_iter.next().unwrap());
