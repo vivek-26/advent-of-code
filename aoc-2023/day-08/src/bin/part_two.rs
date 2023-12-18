@@ -12,9 +12,9 @@ struct Direction<'a> {
     right: &'a str,
 }
 
-#[aoc_runner::main]
-fn main() -> usize {
-    let lines = aoc::read_input_lines(8);
+#[aoc_runner::main(8)]
+fn main(input: &str) -> usize {
+    let lines = input.lines().collect::<Vec<&str>>();
 
     let instructions: Vec<_> = lines[0]
         .chars()

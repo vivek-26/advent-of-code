@@ -6,6 +6,5 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-aoc = { path = "../aoc" }
-num = "0.4.1"
 aoc-runner = { path = "../aoc-runner" }
+num = "0.4.1"
