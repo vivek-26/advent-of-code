@@ -1,7 +1,6 @@
-#[aoc_runner::main]
-fn main() -> isize {
-    let lines = aoc::read_input(9);
-    let mut histories: Vec<Vec<isize>> = lines
+#[aoc_runner::main(9)]
+fn main(input: &str) -> isize {
+    let mut histories: Vec<Vec<isize>> = input
         .split('\n')
         .map(|line| {
             line.split_whitespace()
