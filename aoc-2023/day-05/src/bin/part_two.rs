@@ -1,8 +1,7 @@
 use std::ops::Range;
 
-#[aoc_runner::main]
-fn main() -> i128 {
-    let input = aoc::read_input(5);
+#[aoc_runner::main(5)]
+fn main(input: &str) -> i128 {
     let lines: Vec<_> = input.split("\n\n").collect();
 
     let seeds_ranges = parse_seeds_ranges(lines.first().unwrap());

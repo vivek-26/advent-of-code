@@ -1,6 +1,5 @@
-#[aoc_runner::main]
-fn main() -> usize {
-    let input = aoc::read_input(5);
+#[aoc_runner::main(5)]
+fn main(input: &str) -> usize {
     let mut lines = input.split("\n\n");
 
     let seeds: Vec<_> = lines
