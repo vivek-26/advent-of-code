@@ -1,12 +1,9 @@
 use std::collections::HashMap;
 
-#[aoc_runner::main]
-fn main() -> i32 {
-    let lines = aoc::read_input_lines(2);
-
-    // for each line
+#[aoc_runner::main(2)]
+fn main(input: &str) -> i32 {
     let mut sum = 0;
-    for line in lines {
+    for line in input.lines() {
         // split line into parts (game id and sets)
         let parts: Vec<&str> = line.split(": ").collect();
         let game_id: i32 = parts[0][5..].parse().unwrap();
