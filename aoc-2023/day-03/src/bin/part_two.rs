@@ -11,10 +11,10 @@ const DIR: &[(isize, isize)] = &[
     (1, 1),
 ];
 
-#[aoc_runner::main]
-fn main() -> u64 {
-    let board: Vec<Vec<char>> = aoc::read_input_lines(3)
-        .iter()
+#[aoc_runner::main(3)]
+fn main(input: &str) -> u64 {
+    let board: Vec<Vec<char>> = input
+        .lines()
         .map(|line| line.chars().collect::<Vec<char>>())
         .collect();
 
