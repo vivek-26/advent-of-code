@@ -16,10 +16,9 @@ struct Lens<'a> {
     focal_length: u8,
 }
 
-#[aoc_runner::main]
-fn main() -> usize {
-    let input = aoc::read_input(15);
-    let instructions = parse_instructions(input.as_str());
+#[aoc_runner::main(15)]
+fn main(input: &str) -> usize {
+    let instructions = parse_instructions(input);
 
     let mut boxes: Vec<Vec<Lens>> = vec![Vec::new(); 256];
     for instruction in instructions {

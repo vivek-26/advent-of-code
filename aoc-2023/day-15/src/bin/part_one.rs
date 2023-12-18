@@ -1,6 +1,5 @@
-#[aoc_runner::main]
-fn main() -> usize {
-    let input = aoc::read_input(15);
+#[aoc_runner::main(15)]
+fn main(input: &str) -> usize {
     input.split(',').map(hash).sum()
 }
 
