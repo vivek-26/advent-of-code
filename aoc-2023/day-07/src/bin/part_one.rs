@@ -19,8 +19,8 @@ struct Card {
     bid: u16,
 }
 
-#[aoc_runner::main]
-fn main() -> usize {
+#[aoc_runner::main(7)]
+fn main(input: &str) -> usize {
     let card_strength = [
         'A', 'K', 'Q', 'J', 'T', '9', '8', '7', '6', '5', '4', '3', '2',
     ]
@@ -30,13 +30,12 @@ fn main() -> usize {
     .map(|(idx, ch)| (*ch, idx as u8))
     .collect::<HashMap<char, u8>>();
 
-    let lines = aoc::read_input_lines(7);
-    let mut cards = lines
-        .iter()
+    let mut cards = input
+        .lines()
         .map(|input| {
             let mut iter = input.split_whitespace();
             Card {
-                raw: input.clone(),
+                raw: input.to_string(),
                 typ: parse_card_type(iter.next().unwrap()),
                 bid: iter.next().unwrap_or("0").parse::<u16>().unwrap(),
             }
