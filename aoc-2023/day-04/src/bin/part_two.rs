@@ -1,12 +1,12 @@
 use std::collections::{HashMap, HashSet};
 
-#[aoc_runner::main]
-fn main() -> u32 {
+#[aoc_runner::main(4)]
+fn main(input: &str) -> u32 {
     let mut sum = 0_u32;
     let mut copies = HashMap::new();
     copies.insert(1, 1);
 
-    for (idx, line) in aoc::read_input_lines(4).iter().enumerate() {
+    for (idx, line) in input.lines().enumerate() {
         let numbers: Vec<&str> = line.split(':').nth(1).unwrap().split('|').collect();
 
         let winning_numbers: HashSet<u32> = numbers[0]

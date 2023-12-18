@@ -1,10 +1,10 @@
 use std::collections::HashSet;
 
-#[aoc_runner::main]
-fn main() -> u32 {
+#[aoc_runner::main(4)]
+fn main(input: &str) -> u32 {
     let mut sum = 0_u32;
 
-    for line in aoc::read_input_lines(4) {
+    for line in input.lines() {
         let numbers: Vec<&str> = line.split(':').nth(1).unwrap().split('|').collect();
 
         let winning_numbers: HashSet<u32> = numbers[0]
