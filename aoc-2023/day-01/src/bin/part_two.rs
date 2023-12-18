@@ -1,9 +1,8 @@
-#[aoc_runner::main]
-fn main() -> u32 {
-    let lines = aoc::read_input_lines(1);
+#[aoc_runner::main(1)]
+fn main(input: &str) -> u32 {
     let mut sum = 0;
 
-    for line in lines {
+    for line in input.lines() {
         let line = line
             .replace("one", "one1one")
             .replace("two", "two2two")
