@@ -1,4 +1,4 @@
-#[aoc_runner::main]
-fn main() -> usize {
-    day_11::solve(2)
+#[aoc_runner::main(11)]
+fn main(input: &str) -> usize {
+    day_11::solve(input, 2)
 }

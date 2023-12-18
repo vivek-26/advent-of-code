@@ -1,5 +1,4 @@
-pub fn solve(expansion: usize) -> usize {
-    let input = aoc::read_input(11);
+pub fn solve(input: &str, expansion: usize) -> usize {
     let grid: Vec<Vec<_>> = input
         .split('\n')
         .map(|line| line.chars().collect())
