@@ -22,9 +22,8 @@ struct State {
     moves_in_current_direction: u8,
 }
 
-#[aoc_runner::main]
-fn main() -> usize {
-    let input = aoc::read_input(17);
+#[aoc_runner::main(17)]
+fn main(input: &str) -> usize {
     let lines: Vec<Vec<usize>> = input
         .split('\n')
         .map(|line| {
