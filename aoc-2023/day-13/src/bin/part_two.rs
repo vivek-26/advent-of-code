@@ -1,6 +1,5 @@
-#[aoc_runner::main]
-fn main() -> i64 {
-    let input = aoc::read_input(13);
+#[aoc_runner::main(13)]
+fn main(input: &str) -> i64 {
     let input = input.split("\n\n").collect::<Vec<&str>>();
     let mut total: i64 = 0;
     for i in input {
