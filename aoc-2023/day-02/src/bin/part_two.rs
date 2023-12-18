@@ -1,6 +1,6 @@
 use std::collections::HashMap;
 
-#[aoc_runner::timeit]
+#[aoc_runner::main]
 fn main() -> i32 {
     let lines = aoc::read_input_lines(2);
 

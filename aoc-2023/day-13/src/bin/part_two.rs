@@ -1,4 +1,4 @@
-#[aoc_runner::timeit]
+#[aoc_runner::main]
 fn main() -> i64 {
     let input = aoc::read_input(13);
     let input = input.split("\n\n").collect::<Vec<&str>>();

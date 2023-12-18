@@ -2,7 +2,7 @@ use std::collections::HashMap;
 
 use day_14::Landscape;
 
-#[aoc_runner::timeit]
+#[aoc_runner::main]
 fn main() -> usize {
     let mut grid = parse_input(aoc::read_input(14));
     let total_cycles = 1000000000_usize;

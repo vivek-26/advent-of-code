@@ -1,4 +1,4 @@
-#[aoc_runner::timeit]
+#[aoc_runner::main]
 fn main() -> u32 {
     let lines = aoc::read_input_lines(1);
     let mut sum = 0;

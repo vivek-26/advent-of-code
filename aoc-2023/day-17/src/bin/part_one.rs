@@ -21,7 +21,7 @@ struct State {
     direction: Direction,
 }
 
-#[aoc_runner::timeit]
+#[aoc_runner::main]
 fn main() -> usize {
     let input = aoc::read_input(17);
     let lines: Vec<Vec<usize>> = input

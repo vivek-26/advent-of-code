@@ -1,6 +1,6 @@
 use std::ops::Range;
 
-#[aoc_runner::timeit]
+#[aoc_runner::main]
 fn main() -> i128 {
     let input = aoc::read_input(5);
     let lines: Vec<_> = input.split("\n\n").collect();

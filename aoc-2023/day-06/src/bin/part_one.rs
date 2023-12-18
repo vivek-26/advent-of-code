@@ -1,4 +1,4 @@
-#[aoc_runner::timeit]
+#[aoc_runner::main]
 fn main() -> usize {
     let lines = aoc::read_input(6);
     let mut lines_iter = lines.split('\n');

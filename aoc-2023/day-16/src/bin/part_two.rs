@@ -2,7 +2,7 @@ use std::collections::HashSet;
 
 use day_16::{Beam, Direction, Position};
 
-#[aoc_runner::timeit]
+#[aoc_runner::main]
 fn main() -> usize {
     let input = aoc::read_input(16);
     let lines: Vec<Vec<_>> = input.lines().map(|line| line.chars().collect()).collect();

@@ -1,6 +1,6 @@
 use std::collections::{HashMap, HashSet};
 
-#[aoc_runner::timeit]
+#[aoc_runner::main]
 fn main() -> u32 {
     let mut sum = 0_u32;
     let mut copies = HashMap::new();

@@ -12,7 +12,7 @@ struct Direction<'a> {
     right: &'a str,
 }
 
-#[aoc_runner::timeit]
+#[aoc_runner::main]
 fn main() -> usize {
     let lines = aoc::read_input_lines(8);
 

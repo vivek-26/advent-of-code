@@ -1,6 +1,6 @@
 use day_12::possible_ways;
 
-#[aoc_runner::timeit]
+#[aoc_runner::main]
 fn main() -> usize {
     let lines = aoc::read_input(12);
     lines

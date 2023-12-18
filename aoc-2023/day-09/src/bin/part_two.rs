@@ -1,4 +1,4 @@
-#[aoc_runner::timeit]
+#[aoc_runner::main]
 fn main() -> isize {
     let lines = aoc::read_input(9);
     let mut histories: Vec<Vec<isize>> = lines

@@ -3,7 +3,7 @@ use quote::quote;
 use syn::{parse_macro_input, Ident, ItemFn};
 
 #[proc_macro_attribute]
-pub fn timeit(_attr: TokenStream, item: TokenStream) -> TokenStream {
+pub fn main(_attr: TokenStream, item: TokenStream) -> TokenStream {
     let mut aoc_solution = parse_macro_input!(item as ItemFn);
     aoc_solution.sig.ident = Ident::new("aoc_solution", aoc_solution.sig.ident.span());
 

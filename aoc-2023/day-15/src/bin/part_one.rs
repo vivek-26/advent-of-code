@@ -1,4 +1,4 @@
-#[aoc_runner::timeit]
+#[aoc_runner::main]
 fn main() -> usize {
     let input = aoc::read_input(15);
     input.split(',').map(hash).sum()

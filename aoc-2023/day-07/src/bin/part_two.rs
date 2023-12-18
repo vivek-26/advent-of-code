@@ -19,7 +19,7 @@ struct Card {
     bid: u16,
 }
 
-#[aoc_runner::timeit]
+#[aoc_runner::main]
 fn main() -> usize {
     let card_strength = [
         'A', 'K', 'Q', 'T', '9', '8', '7', '6', '5', '4', '3', '2', 'J',

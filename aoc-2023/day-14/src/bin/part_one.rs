@@ -1,6 +1,6 @@
 use day_14::Landscape;
 
-#[aoc_runner::timeit]
+#[aoc_runner::main]
 fn main() -> usize {
     let mut grid = parse_input(aoc::read_input(14));
     slide_north(&mut grid);

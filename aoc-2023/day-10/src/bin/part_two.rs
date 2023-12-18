@@ -2,7 +2,7 @@ use std::collections::{HashSet, VecDeque};
 
 use day_10::{Coordinate, Direction, PipeDirection};
 
-#[aoc_runner::timeit]
+#[aoc_runner::main]
 fn main() -> usize {
     let lines = aoc::read_input(10);
 
