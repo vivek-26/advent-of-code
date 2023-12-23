@@ -8,3 +8,4 @@ edition = "2021"
 [dependencies]
 aoc-runner = { path = "../aoc-runner" }
 hashbrown = "0.14.3"
+itertools = "0.12.0"
