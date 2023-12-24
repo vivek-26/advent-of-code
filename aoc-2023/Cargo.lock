@@ -220,6 +220,7 @@ name = "day-24"
 version = "0.1.0"
 dependencies = [
  "aoc-runner",
+ "itertools",
 ]
 
 [[package]]
