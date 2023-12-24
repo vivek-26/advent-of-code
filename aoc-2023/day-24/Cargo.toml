@@ -8,3 +8,4 @@ edition = "2021"
 [dependencies]
 aoc-runner = { path = "../aoc-runner" }
 itertools = "0.12.0"
+z3 = { version = "0.12.1", features = ["static-link-z3"] }
