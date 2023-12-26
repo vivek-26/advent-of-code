@@ -302,6 +302,8 @@ name = "day-25"
 version = "0.1.0"
 dependencies = [
  "aoc-runner",
+ "hashbrown",
+ "itertools",
 ]
 
 [[package]]
