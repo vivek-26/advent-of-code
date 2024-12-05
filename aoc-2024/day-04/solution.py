@@ -2,11 +2,11 @@ with open("input.txt") as input_file:
     grid = [list(row.strip()) for row in input_file]
 
 
-word = "XMAS"
-all_directions = [(0, 1), (1, 0), (1, 1), (-1, 1), (0, -1), (-1, 0), (-1, -1), (1, -1)]
-
-
 # part 1
+word = "XMAS"
+all_directions = [(0, 1), (1, 0), (0, -1), (-1, 0), (1, 1), (-1, 1), (1, -1), (-1, -1)]
+
+
 def count_xmas_occurrences(grid: list[list[str]]) -> int:
     rows, cols = len(grid), len(grid[0])
     word_len = len(word)
@@ -30,5 +30,28 @@ def count_xmas_occurrences(grid: list[list[str]]) -> int:
     return total_count
 
 
-result = count_xmas_occurrences(grid)
-print(result)
+print(count_xmas_occurrences(grid))
+
+
+# part 2
+def count_xmas_shape_occurrences(grid: list[list[str]]) -> int:
+    rows, cols = len(grid), len(grid[0])
+    total_count = 0
+
+    for r in range(1, rows - 1):
+        for c in range(1, cols - 1):
+            if grid[r][c] != "A":
+                continue
+
+            top, bottom = (
+                grid[r - 1][c - 1] + grid[r + 1][c + 1],
+                grid[r - 1][c + 1] + grid[r + 1][c - 1],
+            )
+
+            if sorted(top) == sorted(bottom) == ["M", "S"]:
+                total_count += 1
+
+    return total_count
+
+
+print(count_xmas_shape_occurrences(grid))
