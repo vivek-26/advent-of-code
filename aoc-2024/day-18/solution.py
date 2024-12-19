@@ -1,17 +1,12 @@
-import re
 from collections import deque
 
 
-def ints(s):
-    return [int(x) for x in re.findall("-?\\d+", s)]
-
-
-D = open("input.txt").read().strip()
+inp = open("input.txt").read().strip()
 
 directions = [(-1, 0), (0, 1), (1, 0), (0, -1)]  # up right down left
 N = 71
-G = [["." for c in range(N)] for r in range(N)]
-for i, line in enumerate(D.split("\n")):
+G = [["." for _ in range(N)] for _ in range(N)]
+for i, line in enumerate(inp.split("\n")):
     x, y = [int(x) for x in line.split(",")]
     if 0 <= y < N and 0 <= x < N:
         G[y][x] = "#"
